@@ -1,0 +1,5 @@
+.env
+.csv
+node_modules
+tmp
+$RECYCLE.BIN/
