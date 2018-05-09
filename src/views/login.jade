@@ -1,16 +1,20 @@
 extends layout
 
 block content
-    .container
-        h1 Login Page
-        p.lead Welcome to Fresh & Local!
+    .container.flat-box.width-card
+        h1 Producer Login
+        p Welcome to Fresh & Local! Login below to see what's selling.
+        p <em>Not a producer?</em> No need to sign in — go ahead and start checking out local goods!
         br
         form(role='form', action="/login", method="post", style='max-width: 300px;')
             .form-group
                 input.form-control(type='text', name="username", placeholder='Enter Username')
             .form-group
                 input.form-control(type='password', name="password", placeholder='Password')
-            button.btn.btn-default(type='submit') Submit
+            button.width-100(type='submit') Submit
             | &nbsp;
-            a(href='/')
-                button.btn.btn-primary(type="button") Cancel
+        hr
+        div
+            h3.margin-small No account yet?
+            p
+                a(href="/register") Register your business to get started

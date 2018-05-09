@@ -11,9 +11,16 @@ router.get('/register', function (req, res) {
     res.render('register', { });
 });
 
+router.get('/dashboard', function (req, res) {
+    res.render('dashboard', { user: req.user });
+});
+
+/**
+ * Register username and password.
+ */
 router.post('/register', function( req, res) {
-    account.VendorAccount.register(
-        new account.VendorAccount({ username: req.body.username }),
+    account.ProducerAccount.register(
+        new account.ProducerAccount({ username: req.body.username }),
         req.body.password,
         function (err, account) {
             if (err) {
@@ -24,7 +31,7 @@ router.post('/register', function( req, res) {
                     if (err) {
                         return next(err);
                     }
-                    res.redirect('/');
+                    res.redirect('/dashboard');
                 });
             });
         }
@@ -35,8 +42,11 @@ router.get('/login', function (req, res) {
     res.render('login', { user: req.user });
 });
 
+/**
+ * Log in to producer dashboard.
+ */
 router.post('/login', passport.authenticate('local'), function (req, res) {
-    res.redirect('/');
+    res.redirect('/dashboard');
 });
 
 router.get('/logout', function (req, res) {

@@ -1,0 +1,343 @@
+html {
+    height: 100%;
+}
+body {
+    color: #444;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* General purpose classes */
+.flex-row {
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.hidden {
+    display: none;
+}
+
+.message-error {
+    color: hsl(0, 85%, 55%);
+}
+
+
+/* Header */
+.market-header._fixed {
+    position: fixed;
+    z-index: 1000;
+}
+.market-header {
+    /* border-top: 3px solid hsl(185, 70%, 76%); */
+    height: 60px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    /* background-color: #fafafb;
+        box-shadow: 0 1px 0 rgba(12,13,14,0.1),
+                    0 1px 3px rgba(12,13,14,0.1),
+                    0 4px 20px rgba(12,13,14,0.035),
+                    0 1px 1px rgba(12,13,14,0.025); */
+}
+.market-header .logo {
+    padding: 0 12px;
+    font-size: 1.25rem;
+    color: hsl(120, 27%, 38%);
+    width: 33%;
+}
+.market-header .logo a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid hsla(120, 100%, 23%, 0.35);
+}
+.market-header .container {
+    height: 100%;
+    width: 100%;
+    max-width: 960px;
+    padding: 0 15px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.market-header .navigation {
+    display: flex;
+    font-size: 1.25rem;
+    width: 67%;
+    margin: auto 1rem;
+    justify-content: space-around;
+    vertical-align: middle;
+    overflow: hidden;
+    opacity: 1;
+    transform-origin: left center;
+    transition: opacity .35s cubic-bezier(.165, .84, .44, 1),
+                max-width .5s cubic-bezier(.165, .84, .44, 1);
+}
+.market-header .navigation ul {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    list-style: none;
+}
+.market-header .navigation li {
+    display: inline-block;
+    height: 100%;
+}
+.market-header .navigation a {
+    flex-direction: row;
+    justify-content: space-between;
+    text-decoration: none;
+    height: 60px;
+    color: #666;
+}
+.market-header .navigation li:hover {
+    cursor: pointer;
+}
+.market-header * {
+    box-sizing: border-box;
+}
+.market-header .navigation a:hover {
+    color: #aaa;
+}
+.market-header .navigation a:visited {
+    color: #666;
+}
+
+.content-container {
+    box-sizing: border-box;
+    display: block;
+    position: relative;
+    padding-top: 60px;
+    padding-left: 0;
+    padding-right: 0;
+    height: 100%;
+    width: 100%;
+    /* Set min-height to ensure footer is at the bottom of the page */
+    min-height: calc(100vh - 193px);
+}
+
+/* Footer */
+.nav-footer {
+    background-color: #444;
+    color: #ddd;
+    padding: 1rem 2rem;
+    position: relative;
+}
+
+.nav-footer .link-list {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.nav-footer .link-list a {
+    color: inherit;
+}
+
+
+
+  /*****************/
+ /* Button styles */
+/*****************/
+button {
+    display: inline-block;
+    color: #FFF;
+    fill: #FFF;
+    background-color: hsl(204, 100%, 50%);
+    border-color: hsl(205, 100%, 40%);
+    box-shadow: inset 0 1px 0 hsl(205, 100%, 70%);
+    padding: .61538rem 1rem;
+    min-height: 2.4615rem;
+    font-weight: 400;
+    font-family: inherit;
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    outline: none;
+    touch-action: manipulation;
+    align-items: flex-start;
+}
+
+
+
+/*************/
+/* Grouping */
+/***********/
+
+/* Summary info containers */
+.flat-box-wrapper {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.0rem;
+    margin: auto;
+    margin-bottom: .5rem;
+    padding-top: 1.8rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+}
+
+.flat-box {
+    box-shadow: 0 0 5px 0 rgba(12,13,14,0.4);
+    font-family: sans-serif;
+    min-height: 12rem;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    padding: .9375rem;
+    width: 90%;
+}
+
+.inline {
+    max-width: 520px;
+}
+
+.flat-box a {
+    color: #2c7ef0;
+}
+
+.section {
+    margin: 3rem 0rem;
+}
+
+
+
+
+
+/**************************************************/
+/* Forms - mostly for registration and logging in */
+/**************************************************/
+.form {
+    margin: 0 auto;
+    margin-bottom: 30px;
+    padding: 30px;
+    width: 280px;
+    vertical-align: baseline;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type=text],
+input[type=remail],
+input[type=password] {
+    box-sizing: border-box;
+    font-size: 1rem;
+    padding: 8px;
+    margin-bottom: 10px;
+    height: 2.5rem;
+    border: 1px solid hsl(219, 6%, 90%);
+    border-radius: 0;
+    cursor: auto;
+}
+
+input[type=text]:focus,
+input[type=remail]:focus,
+input[type=password]:focus,
+input[type=text]:hover,
+input[type=remail]:hover,
+input[type=password]:hover {
+    border: 1px solid lightblue;
+    outline: 1px solid lightblue;
+}
+
+#forgot-pw {
+    position: relative;
+    color: hsl(212, 7%, 65%);
+    font-size: 11px;
+    font-weight: normal;
+    text-decoration: none;
+    text-align: right;
+}
+
+/* log in button */
+form input {
+    margin: 5px 0 5px 0;
+}
+form button {
+    text-align: center;
+    background: hsl(205, 100%, 40%);
+    color: #FFF;
+    border-radius: 3px;
+    width: 190px;
+    padding: 12px 40px;
+    box-shadow: none;
+    text-shadow: none;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 0;
+    transition: 0.2s all;
+}
+form button:hover {
+    background: hsl(205, 82%, 53%);
+}
+.form-control {
+    width: 100%;
+}
+
+.reset-confirm-form {
+    min-height: 13rem;
+}
+
+/* Tooltips for selected inputs */
+p input + div {
+    display: none;
+    position: relative;
+    top: -30px;
+    left: 200px;
+}
+p input:focus + div {
+    display: block;
+}
+
+/* Horizontal Rulez! */
+hr {
+    border: 0;
+    height: 1px;
+    background: #ddd;
+}
+
+/* Color utility classes */
+.color-blue {
+    color: hsl(210, 100%, 79%);
+}
+
+/* Icons */
+.svg-sprite {
+    display: none;
+}
+.product-icon {
+    width: 20px;
+    height: 20px;
+}
+.products-wrapper ul {
+    padding: 0;
+}
+.products-wrapper li {
+    list-style-type: none;
+}
+
+/* Size utility classes */
+.width-card {
+    max-width: 400px;
+}
+.width-100 {
+    width: 100%;
+}
+
+/* Spacing utility classes */
+.margin-bottom-small {
+    margin-bottom: 0.25rem;
+}

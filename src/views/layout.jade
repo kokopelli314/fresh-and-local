@@ -1,13 +1,28 @@
 doctype html
-html
+html(lang='en')
     head
         title=title
+        meta(charset='UTF-8')
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
         link(rel='stylesheet', href='/stylesheets/base.css')
+        block stylesheets
     body
+        header.market-header._fixed
+            div.container
+                h3.logo <a href="/">Fresh & Local</a>
+                nav.navigation
+                    ul
+                        li
+                            a Shop Local
+                        li
+                            if (!user)
+                                a(href="/login") Login
+                            if (user)
+                                a(href="/dashboard") Dashboard
         if (error && error.length > 0)
             br
             h4.error-msg=error
             br
-        block content
+        div.content-container
+            block content
     

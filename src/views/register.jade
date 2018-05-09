@@ -1,16 +1,16 @@
 extends layout
 
 block content
-    .container
-        h1 Register Page
-        p.lead Welcome to Fresh & Local!
+    .container.flat-box.width-card
+        h1 Producer Sign-Up
+        p Welcome to Fresh & Local! Create an account below to start selling your produce online.
+        p <em>Are you a shopper?</em> No need to create an account — go ahead and start checking out local goods!
         br
         form(role='form', action="/register", method="post", style='max-width: 300px;')
-            .form-group
-                input.form-control(type='text', name="username", placeholder='Enter Username')
+            .form-group.width-100
+                input.form-control(type='text', name="username", placeholder='Email Address')
             .form-group
                 input.form-control(type='password', name="password", placeholder='Password')
-            button.btn.btn-default(type='submit') Submit
+            button(type='submit').width-100 Submit
             | &nbsp
-            a(href='/')
-                button.btn.btn-primary(type="button") Cancel
+        br

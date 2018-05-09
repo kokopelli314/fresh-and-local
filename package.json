@@ -46,6 +46,7 @@
     "vue": "^2.5.16"
   },
   "devDependencies": {
-    "webpack": "^4.8.1"
+    "webpack": "^4.8.1",
+    "webpack-cli": "^2.1.3"
   }
 }

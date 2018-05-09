@@ -76,9 +76,9 @@ app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }))
 app.use('/', routes);
 
 // passport config
-passport.use(new LocalStrategy(account.VendorAccount.authenticate()));
-passport.serializeUser(account.VendorAccount.serializeUser());
-passport.deserializeUser(account.VendorAccount.deserializeUser());
+passport.use(new LocalStrategy(account.ProducerAccount.authenticate()));
+passport.serializeUser(account.ProducerAccount.serializeUser());
+passport.deserializeUser(account.ProducerAccount.deserializeUser());
 
 
 /**

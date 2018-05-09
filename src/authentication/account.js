@@ -10,8 +10,8 @@ function validatePassword(password, cb) {
     }
 }
 
-// Database schema for vendor accounts
-let vendorAccountSchema = new mongoose.Schema({
+// Database schema for producer accounts
+let producerAccountSchema = new mongoose.Schema({
     businessName: String,
     address: String,
     postalCode: String,
@@ -20,11 +20,11 @@ let vendorAccountSchema = new mongoose.Schema({
     username: String,
     password: String
 });
-vendorAccountSchema.plugin(passportLocalMongoose, {
+producerAccountSchema.plugin(passportLocalMongoose, {
     passwordValidator: validatePassword
 });
 
-let VendorAccount = mongoose.model('VendorAccount', vendorAccountSchema);
+let ProducerAccount = mongoose.model('ProducerAccount', producerAccountSchema);
 
 
-module.exports.VendorAccount = VendorAccount;
+module.exports.ProducerAccount = ProducerAccount;
