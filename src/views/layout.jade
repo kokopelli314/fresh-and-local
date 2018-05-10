@@ -9,14 +9,15 @@ html(lang='en')
     body
         header.market-header._fixed
             div.container
-                h3.logo <a href="/">Fresh & Local</a>
                 nav.navigation
                     ul
                         li
-                            a Shop Local
+                            h3.logo <a href="/">Fresh & Local</a>
+                        li
+                            a Browse
                         li
                             if (!user)
-                                a(href="/login") Login
+                                a(href="/login") Producers
                             if (user)
                                 a(href="/dashboard") Dashboard
         if (error && error.length > 0)
