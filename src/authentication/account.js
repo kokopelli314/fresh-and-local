@@ -11,20 +11,37 @@ function validatePassword(password, cb) {
 }
 
 // Database schema for producer accounts
-let producerAccountSchema = new mongoose.Schema({
+const producerAccountSchema = new mongoose.Schema({
+    username: String,
+    password: String,
     businessName: String,
     address: String,
     postalCode: String,
     city: String,
     state: String,
-    username: String,
-    password: String
 });
 producerAccountSchema.plugin(passportLocalMongoose, {
     passwordValidator: validatePassword
 });
 
-let ProducerAccount = mongoose.model('ProducerAccount', producerAccountSchema);
-
-
+const ProducerAccount = mongoose.model('ProducerAccount', producerAccountSchema);
 module.exports.ProducerAccount = ProducerAccount;
+
+
+async function updateProfile(username, params) {
+    return new Promise((resolve, reject) => {
+        ProducerAccount.findOneAndUpdate(
+            { username: username },
+            { $set: params },
+            { },
+            function(err, doc) {
+                if (err) {
+                    console.log(`Error: ${err}`);
+                    reject(err);
+                }
+                resolve(doc);
+            }
+        );
+    });
+}
+module.exports.updateProfile = updateProfile;

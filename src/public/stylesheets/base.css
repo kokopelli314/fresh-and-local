@@ -19,8 +19,11 @@ body {
     display: none;
 }
 
-.message-error {
+.error {
     color: hsl(0, 85%, 55%);
+}
+.message {
+    color: hsl(120, 62%, 31%);
 }
 
 

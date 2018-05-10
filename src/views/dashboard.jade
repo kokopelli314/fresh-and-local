@@ -3,6 +3,22 @@ extends layout
 block content
     .container.flat-box.width-card
         h1 Dashboard
+        if (message)
+            p.message #{message}
         p Welcome to your dashboard! This view shows all the good stuff.
         p Hi, #{user.username}.
-        a(href="/logout") Log out of Fresh & Local.
+        //- a(href="/logout") Log out of Fresh & Local.
+        br
+        hr
+        h2 Your Information
+        form(role='form', action="/profile", method="post", style='max-width: 300px;')
+            .form-group
+                input.form-control(type='text', name="businessName", placeholder='Business or farm name' autocomplete='business-name')
+            .form-group
+                input.form-control(type='text', name="firstName", placeholder='First name' autocomplete='given-name')
+                input.form-control(type='text', name="lastName", placeholder='Last name' autocomplete='family-name')
+            .form-group
+                input.form-control(type='text', name="city", placeholder='City' autocomplete='address-level2')
+                input.form-control(type='text', name="postalCode", placeholder='Postal code' autocomplete='postal-code')
+            button.width-100(type='submit') Save
+            | &nbsp;

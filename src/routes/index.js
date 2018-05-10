@@ -3,20 +3,57 @@ const passport = require('passport');
 const account = require('../authentication/account');
 const router = express.Router();
 
+/**
+ * Landing page
+ */
 router.get('/', function (req, res) {
-    res.render('index', { user: req.user });
+    res.render('index');
 });
 
+/**
+ * Producer dashboard
+ */
+router.get('/dashboard', function (req, res) {
+    res.render('dashboard');
+});
+
+/**
+ * Update producer profile information
+ */
+router.post('/profile', /*passport.authenticate('local'),*/ async function (req, res) {
+    await account.updateProfile(req.user.username, req.body);
+    req.session.message = `✓ Information successfully updated!`;
+    res.redirect('/dashboard');
+});
+
+/**
+ * Producer login page.
+ */
+router.get('/login', function (req, res) {
+    res.render('login', { user: req.user });
+});
+
+/**
+ * Log in to producer dashboard.
+ */
+router.post('/login', passport.authenticate('local'), function (req, res) {
+    res.redirect('/dashboard');
+});
+
+router.get('/logout', function (req, res) {
+    req.logout();
+    res.redirect('/');
+});
+
+/**
+ * Producer registration page.
+ */
 router.get('/register', function (req, res) {
     res.render('register', { });
 });
 
-router.get('/dashboard', function (req, res) {
-    res.render('dashboard', { user: req.user });
-});
-
 /**
- * Register username and password.
+ * Register username and password. Form post route.
  */
 router.post('/register', function( req, res) {
     account.ProducerAccount.register(
@@ -38,22 +75,9 @@ router.post('/register', function( req, res) {
     );
 });
 
-router.get('/login', function (req, res) {
-    res.render('login', { user: req.user });
-});
-
 /**
- * Log in to producer dashboard.
+ * Test!
  */
-router.post('/login', passport.authenticate('local'), function (req, res) {
-    res.redirect('/dashboard');
-});
-
-router.get('/logout', function (req, res) {
-    req.logout();
-    res.redirect('/');
-});
-
 router.get('/ping', function (req, res) {
     res.status(200).send('pong!');
 });

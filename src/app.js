@@ -73,7 +73,18 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }));
 
+// Assign user and message (if any) for render functions
+app.use(function(req, res, next) {
+    res.locals.user = req.user || {};
+    // assign message to context, then delete from session
+    res.locals.message = req.session.message;
+    delete req.session.message;
+    next();
+});
+
+// Routes
 app.use('/', routes);
+
 
 // passport config
 passport.use(new LocalStrategy(account.ProducerAccount.authenticate()));
@@ -87,6 +98,7 @@ passport.deserializeUser(account.ProducerAccount.deserializeUser());
 app.use(function(req, res, next) {
     let err = new Error('Not Found');
     err.status = 404;
+    console.log(`404 request`);
     next(err);
 });
 
@@ -94,6 +106,7 @@ app.use(function(req, res, next) {
 if (process.env.NODE_ENV === 'development') {
     app.use(function(err, req, res, next) {
         res.status(err.status || 500);
+        console.log(err);
         res.render('error', {
             message: err.message,
             error: err
@@ -103,6 +116,7 @@ if (process.env.NODE_ENV === 'development') {
 // Production error handler
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);
+    console.log(err);
     res.render('error', {
         message: err.message,
         error: {}
