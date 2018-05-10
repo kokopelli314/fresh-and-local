@@ -19,6 +19,8 @@ const producerAccountSchema = new mongoose.Schema({
     postalCode: String,
     city: String,
     state: String,
+    firstName: String,
+    lastName: String
 });
 producerAccountSchema.plugin(passportLocalMongoose, {
     passwordValidator: validatePassword
