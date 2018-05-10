@@ -16,9 +16,9 @@ html(lang='en')
                         li
                             a Browse
                         li
-                            if (!user)
+                            if (!loggedIn)
                                 a(href="/login") Producers
-                            if (user)
+                            if (loggedIn)
                                 a(href="/dashboard") Dashboard
         if (error && error.length > 0)
             br

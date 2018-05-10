@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const cors = require('cors'); // CORS middleware
 const helmet = require('helmet');
+const isEmpty = require('ramda/src/isEmpty');
 const MongoStore = require('connect-mongo')(session);
 const path = require('path');
 const mongoose = require('mongoose');
@@ -75,6 +76,7 @@ app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }))
 
 // Assign user and message (if any) for render functions
 app.use(function(req, res, next) {
+    res.locals.loggedIn = req.user && !isEmpty(req.user);
     res.locals.user = req.user || {};
     // assign message to context, then delete from session
     res.locals.message = req.session.message;

@@ -7,8 +7,8 @@ block content
             p.message #{message}
         p Welcome to your dashboard! This view shows all the good stuff.
         p Hi, #{user.username}.
-        //- a(href="/logout") Log out of Fresh & Local.
         br
+        
         hr
         h2 Your Information
         form(role='form', action="/profile", method="post", style='max-width: 300px;')
@@ -31,3 +31,8 @@ block content
                     value="#{user.postalCode || ''}")
             button.width-100(type='submit') Save
             | &nbsp;
+
+        hr
+        br
+        a(href="/logout") Log out of Fresh & Local.
+        br
