@@ -98,9 +98,6 @@ body {
     line-height: 60px;
     color: #666;
 }
-.market-header .navigation li:hover {
-    cursor: pointer;
-}
 .market-header * {
     box-sizing: border-box;
 }

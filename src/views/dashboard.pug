@@ -15,20 +15,20 @@ block content
             .form-group
                 input.form-control(type='text', name="businessName",
                     placeholder='Business or farm name' autocomplete='business-name'
-                    value="#{user.businessName || ''}")
+                    value=user.businessName || '')
             .form-group
                 input.form-control(type='text', name="firstName",
                     placeholder='First name' autocomplete='given-name',
-                    value="#{user.firstName || ''}")
+                    value=user.firstName || '')
                 input.form-control(type='text', name="lastName",
                     placeholder='Last name' autocomplete='family-name',
-                    value="#{user.lastName || ''}")
+                    value=user.lastName || '')
             .form-group
                 input.form-control(type='text', name="city", placeholder='City'
-                    autocomplete='address-level2', value="#{user.city || ''}")
+                    autocomplete='address-level2', value=user.city || '')
                 input.form-control(type='text', name="postalCode",
                     placeholder='Postal code' autocomplete='postal-code',
-                    value="#{user.postalCode || ''}")
+                    value=user.postalCode || '')
             button.width-100(type='submit') Save
             | &nbsp;
 

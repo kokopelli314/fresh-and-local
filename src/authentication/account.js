@@ -12,15 +12,27 @@ function validatePassword(password, cb) {
 
 // Database schema for producer accounts
 const producerAccountSchema = new mongoose.Schema({
-    username: String,
-    password: String,
+    _id: mongoose.Schema.Types.ObjectId,
+    username: {
+        type: String,
+        required: true
+    },
+    password: {
+        type: String,
+        required: true
+    },
     businessName: String,
     address: String,
     postalCode: String,
     city: String,
     state: String,
     firstName: String,
-    lastName: String
+    lastName: String,
+    // Has user been activated by site admin?
+    activated: {
+        type: Boolean,
+        default: false
+    }
 });
 producerAccountSchema.plugin(passportLocalMongoose, {
     passwordValidator: validatePassword
