@@ -18,8 +18,13 @@ const productSchema = new mongoose.Schema({
     },
     weightUnit: {
         type: String,
-        enum: ['pound', 'gram', 'kilogram']
+        enum: ['pound', 'gram', 'kilogram'],
+        default: 'pound'
     },
+    // Price in dollars
+    price: {
+        type: Number
+    }
 });
 
 const Product = new mongoose.model('Product', productSchema);

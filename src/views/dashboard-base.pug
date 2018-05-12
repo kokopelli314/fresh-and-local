@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    .container.producer-dashboard
+        nav.container.side-nav
+            ul
+                li 
+                    a(href="/dashboard") Profile
+                li
+                    a(href="/dashboard/products") Products
+                li 
+                    a(href="/dashboard/orders") Orders
+        
+        block dashboard-content

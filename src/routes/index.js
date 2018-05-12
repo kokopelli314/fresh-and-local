@@ -18,9 +18,31 @@ router.get('/dashboard', function (req, res) {
 });
 
 /**
+ * Producer product list page
+ */
+router.get('/dashboard/products', function (req, res) {
+    res.render('products');
+});
+
+/**
+ * New product upload page
+ */
+router.get('/dashboard/products/add', function (req, res) {
+    res.render('products-add');
+});
+/**
+ * New product post
+ */
+router.post('/products/add', function (req, res) {
+    // await product.add(req.user.username, req.body);
+    req.session.message = `✓ Product successfully added!`;
+    res.redirect('/dashboard/products')
+});
+
+/**
  * Update producer profile information
  */
-router.post('/profile', /*passport.authenticate('local'),*/ async function (req, res) {
+router.post('/profile', async function (req, res) {
     await account.updateProfile(req.user.username, req.body);
     req.session.message = `✓ Information successfully updated!`;
     res.redirect('/dashboard');
