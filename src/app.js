@@ -84,6 +84,8 @@ app.use(function(req, res, next) {
     next();
 });
 
+// Serve static files in `public` directory
+app.use(express.static('public'));
 // Routes
 app.use('/', routes);
 

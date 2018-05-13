@@ -1,6 +1,33 @@
+
 /*******************************/
 /* Landing page
 /*******************************/
+/* Background image */
+.image-container {
+    position: relative;
+    width: 100vw;
+    height: 600px;
+    overflow: hidden;
+    background-image: url("/images/barn.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    bottom:0;
+}
+
+.diagonal {
+    position: relative;
+    height: 250px;
+    top: 600px;
+    left: 400px;
+    width: 100vw;
+    overflow: hidden;
+    transform: skewY(-12deg);
+    transform-origin: 0;
+    background: rgb(255,255,255);
+}
+
+
+
 .landing-page p,
 .landing-page li {
     font-size: 1.1em;
